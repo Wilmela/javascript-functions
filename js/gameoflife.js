@@ -13,13 +13,13 @@ function contains(cell) {
 }
 
 const printCell = (cell, state) => {
-  return contains.call(cell, state) ? "\u25A3" : "\u25A2";
+  return contains.call(state, cell, ) ? "\u25A3" : "\u25A2";
 };
 
 const corners = (state = []) => {
   if (state.length === 0) {
     return {
-      topRight: [0, 0],
+      topRight: [0, 0], 
       bottomLeft: [0, 0],
     };
   }
