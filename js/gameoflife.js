@@ -3,12 +3,13 @@ function seed() {
 }
 
 function same([x, y], [j, k]) {
-  return x === j && y === k;
+   return x === j && y === k;
+ 
 }
 
 // The game state to search for `cell` is passed as the `this` value of the function.
 function contains(cell) {
-  return this.some((gameState) => same(gameState, cell));
+  return this.some((pCell) => same(pCell, cell));
 }
 
 const printCell = (cell, state) => {
@@ -40,7 +41,7 @@ const printCells = (state) => {
     for (let x = bottomLeft[0]; x <= topRight[0]; x++) {
       row.push(printCell([x, y], state));
     }
-    accumulator += row.join("") + "\n";
+    accumulator += row.join(" ") + "\n";
   }
   return accumulator;
 };
@@ -92,7 +93,7 @@ const iterate = (state, iterations) => {
 
 const main = (pattern, iterations) => {
   const results = iterate(startPatterns[pattern], iterations);
-  results.forEach((r) => console.log(printCells(r)));
+  results.forEach((result) => console.log(printCells(result)));
 };
 
 const startPatterns = {
